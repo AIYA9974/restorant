@@ -1,0 +1,67 @@
+body{
+	background-image:url(../../image/wood_1.png);
+}
+section{
+	background-image:url(../../image/slide_1.jpg);
+}
+.wrap{
+	margin: auto;
+	width: 970px;
+}
+section{
+	height: 500px;
+	width: 970px;
+	
+    
+	}
+section .moto{
+	position:relative;
+	
+	border : 1px solid black;
+	float: right;
+	margin: 35px;
+	
+	width: 180px;
+	height: 180px;
+  	text-align: center;
+  	
+  	background-image:url(../../image/0402-chef.png);
+  	background-size: cover;
+  	border-radius: 25px
+  	
+  	
+}
+section .seek{
+	position:relative;
+	
+	border : 1px solid black;
+	float: right;
+	margin: 35px;
+	width: 180px;
+	height: 180px;
+	clear: both;
+  	text-align: center;
+  	
+  	background-image:url(../../image/type-4.png);
+  	background-size: cover;
+  	border-radius: 25px
+}
+section .seek > div{
+	position: relative;
+	top: -10px;
+	
+	}
+section .moto > div{
+	position: relative;
+	top: -10px;
+	
+	}
+section a{
+	display: block;
+	
+}
+a > div > div {
+	font-size: 25px; 
+	
+	
+}
