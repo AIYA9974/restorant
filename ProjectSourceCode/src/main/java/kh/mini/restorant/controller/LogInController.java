@@ -30,27 +30,12 @@ public class LogInController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/test.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login/login1.jsp").forward(request, response);
 		
 		
 		
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id =request.getParameter("id");
-		String pwd = request.getParameter("pwd");
-		System.out.println(id);
-		System.out.println(pwd);
-		MemberLoginDto dto = new MemberLoginDto(id, pwd);
-		System.out.println(id);
-		System.out.println(pwd);
-		String result = memService.login(dto);
-		if(!result.equals(null)) {
-			
-		} else {
-			System.out.println("오류발생");
-		}
-		
-	}
+
 
 }

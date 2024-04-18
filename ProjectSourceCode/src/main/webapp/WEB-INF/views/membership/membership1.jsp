@@ -49,7 +49,7 @@
                 <div id="msg-memberphone"></div>
             </div>
             <div class="btn-area">
-                <button id="btn" type="submit">인증요청</button>
+                <button id="membership-btn" type="submit">인증요청</button>
             </div>
         </form>
         <div class="caption">
@@ -158,7 +158,44 @@
 	    		
 	    	});	
     	
-			
+		$(loadedHandler)
+		
+		function loadedHandler(){
+			$(.membership-btn).on("click", createAccountHandler);
+		}
+		
+		function createAccountHandler(){
+			console.log($("[name=id]").val());
+			console.log($("[name=pw]").val());
+			console.log($("[name=phone]").val());
+			console.log($("[name=email]").val());
+		    $.ajax({
+		    	url : "${pageContext.request.contextPath}/createaccountfunction",
+		    	method : "post",
+		    	data : {id : $("[name=id]").val(), pwd : $("[name=pw]").val() , phone : $("[name=phone]").val(), email : $("[name=email]").val() },
+		    	success : function(result){
+		    		console.log(result);
+		    		if(result == 1){
+		    			alert("회원가입 되셨습니다");
+		    			location.href="${pageContext.request.contextPath}/login";
+			     	}else {
+			     		alert ("회원가입에 실패하셨습니다");
+			     		$("[name=id]").val("");
+			     		$("[name=pw]").val("");
+			     		$("[name=phone]").val("");
+			     		$("[name=email]").val("");
+			     	}
+		    	}
+		     	,error : function(request, status, error){
+					alert("code: "+request.status + "\n" + "message: " 
+							+ request.responseText + "\n"
+							+ "error: "+error);
+				}
+		    })
+		}
+		
+		
+		
         
         
     </script>

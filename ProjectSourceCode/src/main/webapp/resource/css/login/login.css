@@ -65,7 +65,7 @@ body::before {
 }
 
 .btn-area {margin-top: 30px;}
-.btn-area button{
+.btn-area input.login_button{
     width: 100%; height: 50px;
     background-color: #166cea;
     color:  #fff;
