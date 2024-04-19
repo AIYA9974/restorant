@@ -32,8 +32,6 @@ public class LoginFunction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id =request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		System.out.println(id);
-		System.out.println(pwd);
 		MemberLoginDto dto = new MemberLoginDto(id, pwd);
 		System.out.println(id);
 		System.out.println(pwd);

@@ -4,8 +4,10 @@ import java.sql.Connection;
 
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dao.MemberDao;
-import kh.mini.restorant.model.dto.MemberDto;
+import kh.mini.restorant.model.dto.MemberInsertDto;
 import kh.mini.restorant.model.dto.MemberLoginDto;
+import kh.mini.restorant.model.dto.MemberMypageDto;
+import kh.mini.restorant.model.dto.MemberUpdateDto;
 
 public class MemberService {
 	private MemberDao dao = new MemberDao();
@@ -19,7 +21,7 @@ public class MemberService {
 		return result;
 	}
 
-	public int insert(MemberDto dto) {
+	public int insert(MemberInsertDto dto) {
 		int result = 0;
 		Connection conn = JdbcTemplate.getConnection(true);
 		result = dao.insert(conn, dto);
@@ -27,4 +29,25 @@ public class MemberService {
 		return result;
 	}
 	
+	public MemberMypageDto mypage (String memCode) {
+		System.out.println("service 진행");
+		MemberMypageDto result = null;
+		Connection conn = JdbcTemplate.getConnection(true);
+		result = dao.mypage(conn, memCode);
+		JdbcTemplate.close(conn);
+		System.out.println(result);
+		System.out.println("service 진행 완료");
+		return result;
+	}
+	
+	public int update (MemberUpdateDto dto) {
+		System.out.println("service 진행");
+		int result = 0;
+		Connection conn = JdbcTemplate.getConnection(true);
+		result = dao.update(conn, dto);
+		JdbcTemplate.close(conn);
+		System.out.println("service 진행 완료");
+		
+		return result;
+	}
 }

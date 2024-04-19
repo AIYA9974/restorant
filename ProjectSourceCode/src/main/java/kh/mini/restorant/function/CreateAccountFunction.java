@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kh.mini.restorant.model.dto.MemberDto;
+import kh.mini.restorant.model.dto.MemberInsertDto;
 import kh.mini.restorant.model.service.MemberService;
 
 /**
@@ -27,9 +27,10 @@ public class CreateAccountFunction extends HttpServlet {
 	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Create Account Function 연결 성공");
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		int phone = Integer.parseInt(request.getParameter("phone"));
+		Long phone = Long.parseLong(request.getParameter("phone"));
 		String email = request.getParameter("email");
 		
 		System.out.println(id);
@@ -37,11 +38,12 @@ public class CreateAccountFunction extends HttpServlet {
 		System.out.println(phone);
 		System.err.println(email);
 		
-		MemberDto dto = new MemberDto(pwd, id, phone, email);
+		MemberInsertDto dto = new MemberInsertDto(id, pwd, phone, email);
 		
 		int result = new MemberService().insert(dto);
 		if(result == 1) {
 			System.out.println("성공");
+			
 		}
 		response.getWriter().append(String.valueOf(result));
 		

@@ -13,7 +13,7 @@
 </c:if>
 <c:if test="${not empty sssMemberCode }">
 			<div class="login">
-				<a href="${getContext.request.contextPath}/mini/login">${sssMemberCode }</a>
+				<a href="${getContext.request.contextPath}/mini/mypage">${sssMemberCode }</a>
 			</div>
 </c:if>
 			

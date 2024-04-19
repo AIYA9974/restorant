@@ -27,17 +27,17 @@
 	  		<input type="text"  placeholder="한줄평">
 	  		<label for="input-score">별점</label>
 	  		<select class="form-select" id="input-score">
-	              <option selected>선택하기</option>
+	              <option selected value="0">직접입력</option>
 	              <option value="1">⭐</option>
 	              <option value="2">⭐⭐</option>
 	              <option value="3">⭐⭐⭐</option>
-	              <option value="3">⭐⭐⭐⭐</option>
-	              <option value="3">⭐⭐⭐⭐⭐</option>
+	              <option value="4">⭐⭐⭐⭐</option>
+	              <option value="5">⭐⭐⭐⭐⭐</option>
 	        </select>
 	        <textarea rows="5" cols="100" placeholder="리뷰를 적어 주세요~~"></textarea>
 		</div>
 	
-	
+
 		<div class="reivew-read">
 		
 		<div class="page">작성된 리뷰 보기</div>

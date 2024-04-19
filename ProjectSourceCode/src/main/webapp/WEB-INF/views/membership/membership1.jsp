@@ -49,7 +49,7 @@
                 <div id="msg-memberphone"></div>
             </div>
             <div class="btn-area">
-                <button id="membership-btn" type="submit">인증요청</button>
+                <input class="membership-btn" id="membership-btn" type="button" value="회원가입">
             </div>
         </form>
         <div class="caption">
@@ -58,7 +58,8 @@
     </section>
 
     <script>
-        let id = $('#id');
+    
+      /*   let id = $('#id');
         let pw = $('#pw');
         let pwch = $('#pwch');
         let email = $('#email');
@@ -156,12 +157,12 @@
 	    				$('#msg-memberpasswordCheck').css('color', 'red');
 	    			}
 	    		
-	    	});	
+	    	});	 */
     	
 		$(loadedHandler)
 		
 		function loadedHandler(){
-			$(.membership-btn).on("click", createAccountHandler);
+			$(".membership-btn").on("click", createAccountHandler);
 		}
 		
 		function createAccountHandler(){
@@ -170,14 +171,14 @@
 			console.log($("[name=phone]").val());
 			console.log($("[name=email]").val());
 		    $.ajax({
-		    	url : "${pageContext.request.contextPath}/createaccountfunction",
+		    	url : "${pageContext.request.contextPath }/createaccountfunction",
 		    	method : "post",
 		    	data : {id : $("[name=id]").val(), pwd : $("[name=pw]").val() , phone : $("[name=phone]").val(), email : $("[name=email]").val() },
 		    	success : function(result){
 		    		console.log(result);
 		    		if(result == 1){
 		    			alert("회원가입 되셨습니다");
-		    			location.href="${pageContext.request.contextPath}/login";
+		    			location.href="${pageContext.request.contextPath }/login";
 			     	}else {
 			     		alert ("회원가입에 실패하셨습니다");
 			     		$("[name=id]").val("");

@@ -1,21 +1,19 @@
 package kh.mini.restorant.model.dto;
 
-public class MemberDto {
+public class MemberUpdateDto {
 	private String memCode;
-	private String memId;
 	private String memPassword;
-	private int memPhone;
+	private Long memPhone;
 	private String memEmail;
-
 	@Override
 	public String toString() {
-		return "MemberDto [memCode=" + memCode + ", memId=" + memId + ", memPassword=" + memPassword + ", memPhone="
-				+ memPhone + ", memEmail=" + memEmail + "]";
+		return "MemberUpdateDto [memCode=" + memCode + ", memPassword=" + memPassword + ", memPhone=" + memPhone
+				+ ", memEmail=" + memEmail + "]";
 	}
-
-	public MemberDto(String memId, String memPassword, int memPhone, String memEmail) {
+	
+	public MemberUpdateDto(String memCode , String memPassword, Long memPhone, String memEmail) {
 		super();
-		this.memId = memId;
+		this.memCode = memCode;
 		this.memPassword = memPassword;
 		this.memPhone = memPhone;
 		this.memEmail = memEmail;
@@ -29,14 +27,6 @@ public class MemberDto {
 		this.memCode = memCode;
 	}
 
-	public String getMemId() {
-		return memId;
-	}
-
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-
 	public String getMemPassword() {
 		return memPassword;
 	}
@@ -45,11 +35,11 @@ public class MemberDto {
 		this.memPassword = memPassword;
 	}
 
-	public int getMemPhone() {
+	public Long getMemPhone() {
 		return memPhone;
 	}
 
-	public void setMemPhone(int memPhone) {
+	public void setMemPhone(Long memPhone) {
 		this.memPhone = memPhone;
 	}
 
@@ -60,7 +50,9 @@ public class MemberDto {
 	public void setMemEmail(String memEmail) {
 		this.memEmail = memEmail;
 	}
-
+	
+	
+	
 }
 //이름          널?       유형           
 //----------- -------- ------------ 
