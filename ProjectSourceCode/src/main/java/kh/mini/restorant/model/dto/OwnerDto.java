@@ -11,9 +11,8 @@ public class OwnerDto {
 	}
 	
 	
-	public OwnerDto(String ownerCode, String memCode) {
+	public OwnerDto(String memCode) {
 		super();
-		this.ownerCode = ownerCode;
 		this.memCode = memCode;
 	}
 	

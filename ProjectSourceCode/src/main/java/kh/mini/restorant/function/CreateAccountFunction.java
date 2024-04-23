@@ -46,6 +46,7 @@ public class CreateAccountFunction extends HttpServlet {
 			
 		}
 		response.getWriter().append(String.valueOf(result));
+		System.out.println("Create Account Function 연결 탈출");
 		
 	}
 

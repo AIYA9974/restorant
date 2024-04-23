@@ -10,35 +10,39 @@ import javax.servlet.http.HttpServletResponse;
 import kh.mini.restorant.model.service.OwnerService;
 
 /**
- * Servlet implementation class OwnerCodeCreateFunction
+ * Servlet implementation class OwnerCheckFunction
  */
-@WebServlet("/ownercodecreatefunction")
-public class OwnerCodeCreateFunction extends HttpServlet {
+@WebServlet("/ownercheckfunction")
+public class OwnerCheckFunction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	OwnerService service = new OwnerService();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OwnerCodeCreateFunction() {
+    public OwnerCheckFunction() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("오너 생성 펑션 시작");
+		System.out.println("오너 체크 펑션 시작");
+		
 		String memCode = request.getParameter("memCode");
-		System.out.println(memCode);
-		int result = new OwnerService().insert(memCode);
-		if(result == 1) {
-			System.out.println("성공");
+		System.out.println("오너 체크 펑션 memCode : "+memCode);
+		
+		String result = service.check(memCode);
+		System.out.println("오너 체크 펑션 result : "+result);
+		
+		if(result != null && !result.equals("")) {
+			request.getSession().setAttribute("sssOwnerCode", result);
+		} else {
+			System.out.println("오류 발생으로 인하여 sssOwnerCode 가져오기 실패");
 		}
-		response.getWriter().append(String.valueOf(result));
 		
 		
-		System.out.println("오너 생성 펑션 끝");
+		System.out.println("오너 체크 펑션 끝");
+	
 	}
 
 }
