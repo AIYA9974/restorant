@@ -11,6 +11,7 @@ import static kh.mini.restorant.jdbc.common.JdbcTemplate.close;
 
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dto.RestorantDto;
+import kh.mini.restorant.model.dto.RestorantGetInfoDto;
 import kh.mini.restorant.model.dto.RestorantUploadedListDto;
 
 public class RestorantDao {
@@ -56,7 +57,7 @@ public class RestorantDao {
 		System.out.println("LIST DAO 시작");
 		
 		List<RestorantUploadedListDto> result = null;
-		String sql = "SELECT RESTORANT_NAME , RESTORANT_LOCAL , RESTORANT_KIND FROM RESTORANT WHERE OWNER_CODE =?";
+		String sql = "SELECT RESTORANT_CODE, RESTORANT_NAME , RESTORANT_LOCAL , RESTORANT_KIND FROM RESTORANT WHERE OWNER_CODE =?";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
@@ -70,7 +71,7 @@ public class RestorantDao {
 				result = new ArrayList<RestorantUploadedListDto>();
 				do {
 					RestorantUploadedListDto dto = new RestorantUploadedListDto(
-							rs.getString("RESTORANT_NAME"), rs.getString("RESTORANT_LOCAL"), rs.getString("RESTORANT_KIND")
+							rs.getString("RESTORANT_CODE"), rs.getString("RESTORANT_NAME"), rs.getString("RESTORANT_LOCAL"), rs.getString("RESTORANT_KIND")
 							);
 					result.add(dto);
 				}while (rs.next());
@@ -89,6 +90,33 @@ public class RestorantDao {
 		return result;
 	}
 	
+	public RestorantGetInfoDto getInfo(Connection conn, String resCode) {
+		System.out.println("------getInfo dao 진행");
+		
+		RestorantGetInfoDto result = null;
+		String sql = "SELECT RESTORANT_NAME, RESTORANT_PHONE, RESTORANT_SUB_PHONE, RESTORANT_EMAIL, RESTORANT_LOCAL, RESTORANT_MESSAGE \r\n"
+				+ "    FROM RESTORANT WHERE RESTORANT_CODE = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, resCode);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = new RestorantGetInfoDto(rs.getString("RESTORANT_NAME"), rs.getLong("RESTORANT_PHONE"),	rs.getLong("RESTORANT_SUB_PHONE"),rs.getString("RESTORANT_EMAIL"), rs.getString("RESTORANT_LOCAL"), rs.getString("RESTORANT_MESSAGE") );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JdbcTemplate.close(rs);
+		JdbcTemplate.close(pstmt);
+		
+		System.out.println("getInfo dao resCode :"+resCode);
+		System.out.println("------getInfo dao 종료");
+		return result;
+	}
 	
 	
 }

@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resource/css/mypage.css">
+<link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resource/css/bootstrap.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resource/css/bootstrap-datetimepicker.min.css">
@@ -21,64 +23,61 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header>
-		<div>
-			<%@include file="/WEB-INF/views/header.jsp"%>
-		</div>
-	</header>
-	<section>
-		<div>
-			아이디 : <input type="text" class="id" readonly="readonly"
-				value="${memId }">
-		</div>
-
-		<div>
-			휴대폰 번호 : <input type="text" class="phone" readonly="readonly"
-				value="${memPhone }">
-		</div>
-
-		<div>
-			이메일 : <input type="text" class="email" readonly="readonly"
-				value="${memEmail }">
-		</div>
-		<a href="${getContext.request.contextPath}/mini/mypageupdate">수정하기</a>
-	</section>
-	<section>
-		<div>
-			<c:if test="${empty sssOwnerCode }">
-				<form>
-					<input type="button" class="owner-create-btn" value="오너계정 생성">
-				</form>
-			</c:if>
-
-			<c:if test="${not empty sssOwnerCode }">
-				<form>
-					<input type="button" class="owner-delete-btn" value="오너계정 삭제">
-				</form>
-				<div>
-					<a
-						href="${getContext.request.contextPath}/mini/restorantuploadcontroller">가게
-						생성 페이지</a>
-				</div>
-				<div>
-					<a href="">가게 수정 페이지</a>
-				</div>
-				<div>
-					<a href="">가게 삭제 페이지</a>
-				</div>
-			</c:if>
-		</div>
-	</section>
-	<section></section>
-
-	<footer>
-		<div id="fh5co-footer">
-			<%@include file="/WEB-INF/views/footer.jsp"%>
-		</div>
-	</footer>
+	<div class="wrap">
+		<header>
+			<div>
+				<%@include file="/WEB-INF/views/header.jsp"%>
+			</div>
+		</header>
+		<section>
+			<div>
+				아이디 : <input type="text" class="id" readonly="readonly"
+					value="${memId }">
+			</div>
+	
+			<div>
+				휴대폰 번호 : <input type="text" class="phone" readonly="readonly"
+					value="${memPhone }">
+			</div>
+	
+			<div>
+				이메일 : <input type="text" class="email" readonly="readonly"
+					value="${memEmail }">
+			</div>
+			<a href="${getContext.request.contextPath}/mini/mypageupdate">수정하기</a>
+		</section>
+		<section class="owner-session">
+			<div>
+				<c:if test="${empty sssOwnerCode }">
+					<form>
+						<input type="button" class="owner-create-btn" value="오너계정 생성">
+					</form>
+				</c:if>
+	
+				<c:if test="${not empty sssOwnerCode }">
+					<form>
+						<input type="button" class="owner-delete-btn" value="오너계정 삭제">
+					</form>
+					
+					<div class="restorant-list">
+						
+					</div>
+				</c:if>
+			</div>
+		
+					
+		</section>
+		<footer>
+			<div id="fh5co-footer">
+				<%@include file="/WEB-INF/views/footer.jsp"%>
+			</div>
+		</footer>
+	</div>
 </body>
 
 <script>
+console.log(${resName});
+
 $(loadedHandler);
 function loadedHandler(){
 	$(loginCheckHandler);
@@ -156,20 +155,72 @@ function ownerDeleteHandler(){
 
 function restorantHandler(){
 	$(restorantUploadedListHandler);
+	
 }
-
+	
 function restorantUploadedListHandler(){
+	
 	$.ajax({
 		url : "${pageContext.request.contextPath}/restorantuploadedlistfunction"
 		,method : "post"
-		,data : {ownerCode : ${sssOwnerCode }}
+		,data : {ownerCode : ${sssOwnerCode } + null}
+		,dataType : "json"
 		,success : function(result){
-			if(result == 1){
-				console.log("오너 계정 삭제 성공");
-				alert("오너 삭제이 생성되었습니다.");
-				location.href="${pageContext.request.contextPath }/mypage";
+				console.log("레스토랑 리스트 성공");
+				console.log(result);
+				
+				restorantListWrap(result);
+				
+				
+			
+		} 
+	})
+}
+
+function restorantListWrap(datalist){
+	console.log("${sssOwnerCode}");
+	
+	var htmlVal = '';
+	for(var idx in datalist){
+		var reslistdto = datalist[idx];
+		htmlVal += `
+			<form class="reslist">
+				<input type="hidden" name="resCode" value="\${reslistdto.resCode}">
+				<input type="hidden" name="resName" value="\${reslistdto.resName}">
+				<input type="hidden" name="resLoc" value="\${reslistdto.resLoc}">
+				<input type="hidden" name="resKind" value="\${reslistdto.resKind}">
+				<div class="reslist_grid">
+					<div>\${reslistdto.resName}</div>
+					<div>\${reslistdto.resLoc}</div>
+					<div>\${reslistdto.resKind}</div>
+					<input type="button" class="restorant-update-btn" value="수정하기">
+					<input type="button" class="restorant-delete-btn" value="등록 해제하기">
+				</div>
+			</form>
+		`;
+		$(".restorant-list").html(htmlVal)
+	}
+		
+		
+		
+		$(".restorant-update-btn").on("click",restorantUpdateHandler);
+	
+}
+
+
+function restorantUpdateHandler(){
+	$.ajax({
+		url : "${pageContext.request.contextPath}/restorantcodecheckfunction"
+		,method : "post"
+		,data : {resCode : $("[name=resCode]").val()}
+		,dataType : "json"
+		,success : function(result){
+			console.log($("[name=resCode]").val());
+			if(result != null || result != 0){
+				console.log("레스토랑 리스트 성공");
+				location.href="${pageContext.request.contextPath }/restorantupdate";
 			}else{
-				alert("오너 계정이 오류로 인하여 삭제가 취소 되었습니다.")
+				console.log("레스토랑 리스트 실패");
 			}
 		}
 	})

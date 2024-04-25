@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+
+div.reslist_grid{
+	display: flex;
+}
+
+div.reslist_grid > div{
+	border: 1px solid black;
+}
+
+section{
+	border: 1px solid black;
+	background-color: ivory;
+}
