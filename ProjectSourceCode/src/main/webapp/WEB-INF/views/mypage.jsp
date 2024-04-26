@@ -59,6 +59,10 @@
 						<input type="button" class="owner-delete-btn" value="오너계정 삭제">
 					</form>
 					
+					<div>
+						<a href="${pageContext.request.contextPath}/restorantupload">레스토랑 등록</a>
+					</div>
+					
 					<div class="restorant-list">
 						
 					</div>
@@ -170,9 +174,6 @@ function restorantUploadedListHandler(){
 				console.log(result);
 				
 				restorantListWrap(result);
-				
-				
-			
 		} 
 	})
 }
@@ -198,9 +199,9 @@ function restorantListWrap(datalist){
 				<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
 				<input type="submit" class="restorant-update-btn" value="수정하기">
 			</form>
-			<form class="res_delete" action="${pageContext.request.contextPath}/restorantupdate" method="post">
+			<form class="res_delete" action="${pageContext.request.contextPath}/restorantdeletefuncion" method="post">
 				<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
-				<input type="submit" class="restorant-delete-btn" value="등록 해제하기">
+				<input type="submit" class="restorant-delete-btn" value="등록 삭제하기">
 			</form>
 		`;
 		$(".restorant-list").html(htmlVal)

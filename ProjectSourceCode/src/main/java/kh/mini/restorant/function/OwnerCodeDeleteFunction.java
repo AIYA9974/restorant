@@ -33,12 +33,16 @@ public class OwnerCodeDeleteFunction extends HttpServlet {
 		int result = service.delete(memCode); 
 		System.out.println("OwnerCodeDeleteFunction result : " + result);
 		
+				request.getSession().removeAttribute("sssOwnerCode");
+				System.out.println("sssOwnerCode 세션 삭제");
 		if(result == 1) {
 			System.out.println("OwnerCodeDeleteFunction 성공 ");
+			response.getWriter().append(String.valueOf(result));
 		} else {
 			System.out.println("OwnerCodeDeleteFunction 실패 ");
 		}
 		System.out.println("OwnerCodeDeleteFunction 탈출 ");
+		
 	}
 
 }
