@@ -1,4 +1,4 @@
-package kh.mini.restorant.function;
+package kh.mini.restorant.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,14 +15,14 @@ import kh.mini.restorant.model.service.RestorantService;
 /**
  * Servlet implementation class RestorantUpdateGetInfoFunction
  */
-@WebServlet("/restorantupdategetinfofunction")
-public class RestorantUpdateGetInfoFunction extends HttpServlet {
+@WebServlet("/restorantgetinfofunction")
+public class RestorantUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RestorantUpdateGetInfoFunction() {
+    public RestorantUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +37,6 @@ public class RestorantUpdateGetInfoFunction extends HttpServlet {
 		
 		result = new RestorantService().getInfo(resCode);
 		System.out.println("GET INFO FUNCTION result : " +result);
-		
 		
 		String rsJson = new Gson().toJson(result); 
 		System.out.println("GET INFO FUNCTION rsJson : " +rsJson);

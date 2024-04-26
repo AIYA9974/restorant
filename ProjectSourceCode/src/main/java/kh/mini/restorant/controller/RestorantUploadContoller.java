@@ -1,4 +1,4 @@
-package kh.mini.restorant.function;
+package kh.mini.restorant.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,13 +14,13 @@ import kh.mini.restorant.model.service.RestorantService;
  * Servlet implementation class UploadRestorantFunction
  */
 @WebServlet("/uploadrestorantfunction")
-public class UploadRestorantFunction extends HttpServlet {
+public class RestorantUploadContoller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UploadRestorantFunction() {
+    public RestorantUploadContoller() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -15,9 +15,9 @@
 	href="<%=request.getContextPath()%>/resource/css/style.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resource/css/head.css">
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <jsp:include page="/WEB-INF/views/function/function.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 
 <title>Insert title here</title>
@@ -44,7 +44,7 @@
 				이메일 : <input type="text" class="email" readonly="readonly"
 					value="${memEmail }">
 			</div>
-			<a href="${getContext.request.contextPath}/mini/mypageupdate">수정하기</a>
+			
 		</section>
 		<section class="owner-session">
 			<div>
@@ -133,7 +133,7 @@ function ownerCreateHandler(){
 				alert("오너 계정이 오류로 인하여 생성이 취소 되었습니다.")
 			}
 		}
-	})
+	});
 }
 
 function ownerDeleteHandler(){
@@ -178,14 +178,13 @@ function restorantUploadedListHandler(){
 }
 
 function restorantListWrap(datalist){
-	console.log("${sssOwnerCode}");
 	
 	var htmlVal = '';
 	for(var idx in datalist){
 		var reslistdto = datalist[idx];
 		htmlVal += `
 			<form class="reslist">
-				<input type="hidden" name="resCode" value="\${reslistdto.resCode}">
+				
 				<input type="hidden" name="resName" value="\${reslistdto.resName}">
 				<input type="hidden" name="resLoc" value="\${reslistdto.resLoc}">
 				<input type="hidden" name="resKind" value="\${reslistdto.resKind}">
@@ -193,38 +192,24 @@ function restorantListWrap(datalist){
 					<div>\${reslistdto.resName}</div>
 					<div>\${reslistdto.resLoc}</div>
 					<div>\${reslistdto.resKind}</div>
-					<input type="button" class="restorant-update-btn" value="수정하기">
-					<input type="button" class="restorant-delete-btn" value="등록 해제하기">
 				</div>
+			</form>
+			<form class="res_update" action="${pageContext.request.contextPath}/restorantupdate" method="post">
+				<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
+				<input type="submit" class="restorant-update-btn" value="수정하기">
+			</form>
+			<form class="res_delete" action="${pageContext.request.contextPath}/restorantupdate" method="post">
+				<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
+				<input type="submit" class="restorant-delete-btn" value="등록 해제하기">
 			</form>
 		`;
 		$(".restorant-list").html(htmlVal)
-	}
 		
-		
-		
-		$(".restorant-update-btn").on("click",restorantUpdateHandler);
+		}
 	
 }
 
 
-function restorantUpdateHandler(){
-	$.ajax({
-		url : "${pageContext.request.contextPath}/restorantcodecheckfunction"
-		,method : "post"
-		,data : {resCode : $("[name=resCode]").val()}
-		,dataType : "json"
-		,success : function(result){
-			console.log($("[name=resCode]").val());
-			if(result != null || result != 0){
-				console.log("레스토랑 리스트 성공");
-				location.href="${pageContext.request.contextPath }/restorantupdate";
-			}else{
-				console.log("레스토랑 리스트 실패");
-			}
-		}
-	})
-}
 
 </script>
 </html>

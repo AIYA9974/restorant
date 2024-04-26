@@ -12,6 +12,7 @@ import static kh.mini.restorant.jdbc.common.JdbcTemplate.close;
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dto.RestorantDto;
 import kh.mini.restorant.model.dto.RestorantGetInfoDto;
+import kh.mini.restorant.model.dto.RestorantUpdateDto;
 import kh.mini.restorant.model.dto.RestorantUploadedListDto;
 
 public class RestorantDao {
@@ -118,5 +119,52 @@ public class RestorantDao {
 		return result;
 	}
 	
+	public int update(Connection conn , RestorantUpdateDto dto) {
+		System.out.println("------getInfo dao 진행");
+		int result = 0 ;
+		String sql = "UPDATE RESTORANT SET RESTORANT_NAME = ? , RESTORANT_PHONE = ? , RESTORANT_SUB_PHONE = ?, RESTORANT_EMAIL = ? , RESTORANT_LOCAL = ? , RESTORANT_MESSAGE = ? \r\n"
+				+ "    WHERE RESTORANT_CODE = ?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getResName());
+			pstmt.setLong(2, dto.getResPhone());
+			pstmt.setLong(3, dto.getResSubPhone());
+			pstmt.setString(4, dto.getResEmail());
+			pstmt.setString(5, dto.getResLoc());
+			pstmt.setString(6, dto.getResMsg());
+			pstmt.setString(7, dto.getResCode());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JdbcTemplate.close(pstmt);
+		System.out.println("------getInfo dao 종료");
+		return result;
+	}
+	
+	public int delete(Connection conn,String resCode) {
+		System.out.println("------getInfo dao 진행");
+		int result = 0;
+		String sql = "DELETE  FROM RESTORANT WHERE RESTORANT_CODE = ?";
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, resCode);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JdbcTemplate.close(pstmt);
+		
+		System.out.println("------getInfo dao 종료");
+		return result;
+	}
 	
 }
