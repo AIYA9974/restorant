@@ -16,6 +16,8 @@
 	</div>
 	<section>
 		<form>
+		
+		<!-- 레스토랑 등록 페이지 -->
 			<div>
 				<input type="text" name="restorant-name" placeholder="가게 이름">
 			</div>
@@ -43,6 +45,37 @@
 		              <option value="en">양식</option>
 		        </select>
 	        </div>
+	        <!-- /레스토랑 등록 페이지 -->
+	        
+	        <!-- 레스토랑 info 등록 페이지 -->
+	        <div>
+	        	혼밥석 유무 :
+	        	Y : <input type="radio" name="place-alone" value="Y">
+	        	N : <input type="radio" name="place-alone" value="N">
+	        </div>
+	        <div>
+	        	단체석 유무 :
+	        	Y : <input type="radio" name="place-group" value="Y">
+	        	N : <input type="radio" name="place-group" value="N">
+	        </div>
+	        <div>
+	        	좌식 테이블 :
+	        	Y : <input type="radio" name="sit-floor" value="Y">
+	        	N : <input type="radio" name="sit-floor" value="N">
+	        </div>
+	        <div>
+	        	테이블 :
+	        	Y : <input type="radio" name="sit-chair" value="Y">
+	        	N : <input type="radio" name="sit-chair" value="N">
+	        </div>
+	        <div>
+	        	스텐딩 테이블 :
+	        	Y : <input type="radio" name="standing" value="Y">
+	        	N : <input type="radio" name="standing" value="N">
+	        </div>
+	        
+	        <!-- /레스토랑 info 등록 페이지 -->
+	        
 			<div>
 				<input type="button" class="submit-restorant-info" value="등록하기">
 			</div>
@@ -65,6 +98,7 @@
 	
 	function RestorantHandler(){
 		$(".submit-restorant-info").on("click",insertRestorantHandler)
+		$(".submit-restorant-info").on("click",insertRestorantInfoHandler)
 	}
 	
 	
@@ -97,6 +131,28 @@
 		});
 	}
 	
+    function insertRestorantInfoHandler(){
+    	$.ajax({
+    		url : "${pageContext.request.contextPath}/restorantinfoinsertfunction"
+    		,method : "post"
+    		,data : {
+    			resCode : ${sssResCode}
+    			,placeAlone : $("[name=palce-alone]").val();
+    			,placeGroup : $("[name=palce-alone]").val();
+    			,sitFloor :  $("[name=palce-alone]").val();
+    			,sitChair : $("[name=palce-alone]").val();
+    			,standing : $("[name=palce-alone]").val();
+    		}
+    		,success : function(result){
+    			console.log("result");
+    			if(result == 1 ){
+    				console.log("레스토랑 정보 삽입 성공하였습니다.");
+    			}else{
+    				console.log("레스토랑 정보 삽입 실패하였습니다.");
+    			}
+    		}
+    	})
+    }
 </script>
 
 
