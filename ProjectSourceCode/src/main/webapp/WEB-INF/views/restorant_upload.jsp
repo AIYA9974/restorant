@@ -51,27 +51,27 @@
 	        <div>
 	        	혼밥석 유무 :
 	        	Y : <input type="radio" name="place-alone" value="Y">
-	        	N : <input type="radio" name="place-alone" value="N">
+	        	N : <input type="radio" name="place-alone" value="N" checked="checked">
 	        </div>
 	        <div>
 	        	단체석 유무 :
 	        	Y : <input type="radio" name="place-group" value="Y">
-	        	N : <input type="radio" name="place-group" value="N">
+	        	N : <input type="radio" name="place-group" value="N" checked="checked">
 	        </div>
 	        <div>
 	        	좌식 테이블 :
 	        	Y : <input type="radio" name="sit-floor" value="Y">
-	        	N : <input type="radio" name="sit-floor" value="N">
+	        	N : <input type="radio" name="sit-floor" value="N" checked="checked">
 	        </div>
 	        <div>
 	        	테이블 :
 	        	Y : <input type="radio" name="sit-chair" value="Y">
-	        	N : <input type="radio" name="sit-chair" value="N">
+	        	N : <input type="radio" name="sit-chair" value="N" checked="checked">
 	        </div>
 	        <div>
 	        	스텐딩 테이블 :
 	        	Y : <input type="radio" name="standing" value="Y">
-	        	N : <input type="radio" name="standing" value="N">
+	        	N : <input type="radio" name="standing" value="N" checked="checked">
 	        </div>
 	        
 	        <!-- /레스토랑 info 등록 페이지 -->
@@ -98,13 +98,10 @@
 	
 	function RestorantHandler(){
 		$(".submit-restorant-info").on("click",insertRestorantHandler)
-		$(".submit-restorant-info").on("click",insertRestorantInfoHandler)
 	}
 	
 	
 	
-/* 	INSERT INTO RESTORANT (,RESTORANT_NAME,RESTORANT_PHONE,RESTORANT_SUB_PHONE,RESTORANT_EMAIL,RESTORANT_LOCAL,RESTORANT_MESSAGE,RESTORANT_AREA) 
-    VALUES (20240414,20240411,'ASDF',0103145,013465,'ASDF@SADF','ASDF','ASDF','AS'); */
 	
     
     function insertRestorantHandler(){
@@ -123,7 +120,9 @@
 				if(result == 1){
 					console.log("오너 계정 생성 성공");
 					alert("레스토랑이 등록 되었습니다.");
-					location.href="${pageContext.request.contextPath }/mypage";
+					
+					$(getResCodeHandler)
+				
 				}else{
 					alert("오류로 인하여 레스토랑 등록을 실패하였습니다.")
 				}
@@ -131,27 +130,50 @@
 		});
 	}
 	
-    function insertRestorantInfoHandler(){
+   	
+    function getResCodeHandler(){
+    	$.ajax({
+    		url : "${pageContext.request.contextPath}/restorantgetcodefunction"
+    		,method : "post"
+    		,data : {
+    			resName : $("[name=restorant-name]").val()
+    			,resPhone : $("[name=restorant-phone]").val()
+    		}
+    		,success : function(result){
+    			console.log(result);
+    			console.log("get rescode 성공 "+result);
+    			insertRestorantInfoHandler(result);
+    		}
+    	})
+    }
+   
+    function insertRestorantInfoHandler(sssResCode){
+    	console.log(sssResCode);
+    	console.log($("[name=place-alone]").val());
+    	
     	$.ajax({
     		url : "${pageContext.request.contextPath}/restorantinfoinsertfunction"
     		,method : "post"
     		,data : {
-    			resCode : ${sssResCode}
-    			,placeAlone : $("[name=palce-alone]").val();
-    			,placeGroup : $("[name=palce-alone]").val();
-    			,sitFloor :  $("[name=palce-alone]").val();
-    			,sitChair : $("[name=palce-alone]").val();
-    			,standing : $("[name=palce-alone]").val();
+    			resCode : sssResCode
+    			,placeAlone : $("[name=place-alone]").val()
+    			,placeGroup : $("[name=place-group]").val()
+    			,sitFloor :  $("[name=sit-floor]").val()
+    			,sitChair : $("[name=sit-chair]").val()
+    			,standing : $("[name=standing]").val()
     		}
     		,success : function(result){
-    			console.log("result");
+    			console.log(result);
     			if(result == 1 ){
     				console.log("레스토랑 정보 삽입 성공하였습니다.");
+    				
+    				location.href="${pageContext.request.contextPath}/mypage"
+    				
     			}else{
     				console.log("레스토랑 정보 삽입 실패하였습니다.");
     			}
     		}
-    	})
+    	});
     }
 </script>
 

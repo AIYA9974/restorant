@@ -11,6 +11,7 @@ import static kh.mini.restorant.jdbc.common.JdbcTemplate.close;
 
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dto.RestorantDto;
+import kh.mini.restorant.model.dto.RestorantGetCodeDto;
 import kh.mini.restorant.model.dto.RestorantGetInfoDto;
 import kh.mini.restorant.model.dto.RestorantUpdateDto;
 import kh.mini.restorant.model.dto.RestorantUploadedListDto;
@@ -164,6 +165,32 @@ public class RestorantDao {
 		JdbcTemplate.close(pstmt);
 		
 		System.out.println("------getInfo dao 종료");
+		return result;
+	}
+	
+	
+	public String getResCode (Connection conn, RestorantGetCodeDto dto) {
+		System.out.println("------getResCode dao 진행");
+		String result = null;
+		String sql="SELECT RESTORANT_CODE FROM RESTORANT WHERE RESTORANT_NAME = ? AND RESTORANT_PHONE = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getResName());
+			pstmt.setLong(2, dto.getResPhone());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getString("RESTORANT_CODE");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JdbcTemplate.close(rs);
+		JdbcTemplate.close(pstmt);
+		System.out.println("------getResCode dao 종료");
 		return result;
 	}
 	

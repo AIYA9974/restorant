@@ -6,6 +6,7 @@ import java.util.List;
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dao.RestorantDao;
 import kh.mini.restorant.model.dto.RestorantDto;
+import kh.mini.restorant.model.dto.RestorantGetCodeDto;
 import kh.mini.restorant.model.dto.RestorantGetInfoDto;
 import kh.mini.restorant.model.dto.RestorantUpdateDto;
 import kh.mini.restorant.model.dto.RestorantUploadedListDto;
@@ -51,6 +52,14 @@ public class RestorantService {
 		int result = 0;
 		Connection conn = JdbcTemplate.getConnection(true);
 		result =dao.delete(conn, resCode);
+		JdbcTemplate.close(conn);
+		return result;
+	}
+	
+	public String getResCode(RestorantGetCodeDto dto) {
+		String result = null;
+		Connection conn = JdbcTemplate.getConnection(true);
+		result = dao.getResCode(conn, dto);
 		JdbcTemplate.close(conn);
 		return result;
 	}

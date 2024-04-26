@@ -16,4 +16,11 @@ public class RestorantInfoService {
 		JdbcTemplate.close(conn);
 		return result;
 	}
+	public int delete(String resCode) {
+		int result = 0;
+		Connection conn = JdbcTemplate.getConnection(true);
+		result = dao.delete(conn, resCode);
+		JdbcTemplate.close(conn);
+		return result;
+	}
 }

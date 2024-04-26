@@ -29,7 +29,7 @@ public class RestorantUpdateFunction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("========= UPDATE FUNCTION 진입");
+		System.out.println("=========RESTORANT UPDATE FUNCTION 진입");
 		
 		String resCode = request.getParameter("resCode");
 		String resName = request.getParameter("resName");
@@ -53,7 +53,7 @@ public class RestorantUpdateFunction extends HttpServlet {
 			System.out.println("UPDATE FUNCTION 실패");
 		}
 		
-		System.out.println("========= UPDATE FUNCTION 탈출");
+		System.out.println("=========RESTORANT UPDATE FUNCTION 탈출");
 	}
 
 }
