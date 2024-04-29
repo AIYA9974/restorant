@@ -2,6 +2,9 @@
 ---DROP SEQUENCE
 DROP SEQUENCE USER_CODE_SEQUENCE;
 
+---DROP PROCEDURE
+DROP procedure pro_create_table;
+DROP procedure pro_delete_table;
 
 -------DROP TABLE
 DROP TABLE "RESTORANT_INFO";
@@ -211,6 +214,58 @@ ALTER TABLE "RESTORANT_INFO" ADD CONSTRAINT "PK_RESTORANT_INFO" PRIMARY KEY (
 );
 
 
+-----CREATE PROCEDURE
+
+------ table 만들어주는 procedure -----
+create or replace NONEDITIONABLE procedure pro_create_table( p_user_id in varchar2, p_table_name out varchar2 )
+is
+    v_dbdate varchar2(30);
+    v_createtablesql VARCHAR2(200);
+    v_cursor INTEGER;
+begin
+
+
+    -- table명 조합하기
+    p_table_name := 'MENU_'||p_user_id;
+
+    -- CREATE TABLE명령어 생성
+    v_createtablesql := 'CREATE TABLE ' || p_table_name || ' (RESTORANT_CODE VARCHAR2(20), MENU_NUM NUMBER,MENU_NAME VARCHAR2(10),MENU_IMAGE VARCHAR2(10), MENU_COMMENT VARCHAR2(50))';
+
+    --CREATE TABLE명령어 화면에 출력  
+    DBMS_OUTPUT.PUT_LINE(v_createtablesql);
+
+    -- 테이블 생성
+    v_cursor := DBMS_SQL.OPEN_CURSOR;  
+    DBMS_SQL.PARSE(v_cursor, v_createtablesql, dbms_sql.v7);
+    DBMS_SQL.CLOSE_CURSOR(v_cursor);
+end;
+/
+
+
+------ table 삭제하는 procedure -----
+create or replace NONEDITIONABLE procedure pro_delete_table( p_user_id in varchar2, p_table_name out varchar2 )
+is
+    v_dbdate varchar2(30);
+    v_deletetablesql VARCHAR2(200);
+    v_cursor INTEGER;
+begin
+
+
+    -- table명 조합하기
+    p_table_name := 'MENU_'||p_user_id;
+
+    -- DELETE TABLE명령어 생성
+    v_deletetablesql := 'DROP TABLE ' || p_table_name ;
+
+    --DELETE TABLE명령어 화면에 출력  
+    DBMS_OUTPUT.PUT_LINE(v_deletetablesql);
+
+    -- 테이블 생성
+    v_cursor := DBMS_SQL.OPEN_CURSOR;  
+    DBMS_SQL.PARSE(v_cursor, v_deletetablesql, dbms_sql.v7);
+    DBMS_SQL.CLOSE_CURSOR(v_cursor);
+end;
+/
 
 ----------------FOREGIN KEY
 ALTER TABLE "RESTORANT" ADD CONSTRAINT "FK_RESTORANT_OWNER_TO_RESTORANT_1" FOREIGN KEY (

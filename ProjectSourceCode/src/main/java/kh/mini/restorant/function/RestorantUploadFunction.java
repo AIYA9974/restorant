@@ -13,7 +13,7 @@ import kh.mini.restorant.model.service.RestorantService;
 /**
  * Servlet implementation class UploadRestorantFunction
  */
-@WebServlet("/uploadrestorantfunction")
+@WebServlet("/restorantuploadfunction")
 public class RestorantUploadFunction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

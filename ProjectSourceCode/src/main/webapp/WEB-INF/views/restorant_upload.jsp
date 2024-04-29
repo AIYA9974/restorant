@@ -106,7 +106,7 @@
     
     function insertRestorantHandler(){
 		$.ajax({
-			url : "${pageContext.request.contextPath}/uploadrestorantfunction"
+			url : "${pageContext.request.contextPath}/restorantuploadfunction"
 			,method : "post"
 			,data : {OwnerCode : ${sssOwnerCode }, 
 					resName : $("[name=restorant-name]").val() ,
@@ -143,6 +143,7 @@
     			console.log(result);
     			console.log("get rescode 성공 "+result);
     			insertRestorantInfoHandler(result);
+    			createMenuHandler(result);
     		}
     	})
     }
@@ -166,15 +167,32 @@
     			console.log(result);
     			if(result == 1 ){
     				console.log("레스토랑 정보 삽입 성공하였습니다.");
-    				
-    				location.href="${pageContext.request.contextPath}/mypage"
-    				
     			}else{
     				console.log("레스토랑 정보 삽입 실패하였습니다.");
     			}
     		}
     	});
     }
+    
+    function createMenuHandler(sssResCode){
+    	$.ajax({
+    		url : "${pageContext.request.contextPath}/createmenufunction"
+        		,method : "post"
+        		,data : { resCode : sssResCode }
+    	,success : function(result){
+			console.log(result);
+			if(result == 1 ){
+				console.log("메뉴 생성 성공하였습니다.");
+				location.href="${pageContext.request.contextPath}/createmenucontroller";
+			}else{
+				console.log("매뉴 생성 실패하였습니다.");
+			}
+		}
+    			
+    	})
+    	
+    }
+    
 </script>
 
 

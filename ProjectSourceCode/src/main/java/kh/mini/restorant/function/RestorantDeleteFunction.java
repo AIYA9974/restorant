@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kh.mini.restorant.model.service.MenuService;
 import kh.mini.restorant.model.service.RestorantInfoService;
 import kh.mini.restorant.model.service.RestorantService;
 
@@ -32,7 +33,8 @@ public class RestorantDeleteFunction extends HttpServlet {
 		System.out.println(resCode);
 		
 //		레스토랑 인포 딜리트 섹션
-		int result = new RestorantInfoService().delete(resCode);
+		int result = 0;
+		result = new RestorantInfoService().delete(resCode);
 		System.out.println("레스토랑 인포 딜리트 : "+result);
 		
 		if(result == 1) {
@@ -42,12 +44,25 @@ public class RestorantDeleteFunction extends HttpServlet {
 		}
 		
 //		레스토랑 딜리트 섹션
+		result = 0;
 		result = new RestorantService().delete(resCode);
 		System.out.println("레스토랑 딜리트 : "+result);
 		if(result == 1) {
 			System.out.println("레스토랑 딜리트 삭제 성공 하였습니다");
 		}else {
 			System.out.println("레스토랑 딜리트 삭제 실패 하였습니다");
+		}
+		
+		
+//		레스토랑 메뉴 딜리트 섹션
+		result = 0;
+		result = new MenuService().delete(resCode);
+		System.out.println("레스토랑 메뉴 딜리트 : "+result);
+		if(result == 1) {
+			System.out.println("레스토랑 딜리트 삭제 성공 하였습니다");
+		}else {
+			System.out.println("레스토랑 딜리트 삭제 실패 하였습니다");
+			
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/views/mypage.jsp").forward(request, response);
