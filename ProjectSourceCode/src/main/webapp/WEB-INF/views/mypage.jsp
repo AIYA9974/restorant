@@ -120,6 +120,11 @@ function ownerCheckHandler(){
 		,success : function(){
 			console.log("오너 체크 성공");
 		}
+		,error : function(request, status, error){
+			alert("code: "+request.status + "\n" + "message: " 
+					+ request.responseText + "\n"
+					+ "error: "+error);
+		}
 	})
 }
 
@@ -136,6 +141,12 @@ function ownerCreateHandler(){
 			}else{
 				alert("오너 계정이 오류로 인하여 생성이 취소 되었습니다.")
 			}
+			
+		}
+		,error : function(request, status, error){
+			alert("code: "+request.status + "\n" + "message: " 
+					+ request.responseText + "\n"
+					+ "error: "+error);
 		}
 	});
 }
@@ -153,6 +164,11 @@ function ownerDeleteHandler(){
 			}else{
 				alert("오너 계정이 오류로 인하여 삭제가 취소 되었습니다.")
 			}
+		}
+		,error : function(request, status, error){
+			alert("code: "+request.status + "\n" + "message: " 
+					+ request.responseText + "\n"
+					+ "error: "+error);
 		}
 	})
 }
@@ -175,6 +191,11 @@ function restorantUploadedListHandler(){
 				
 				restorantListWrap(result);
 		} 
+		,error : function(request, status, error){
+			alert("code: "+request.status + "\n" + "message: " 
+					+ request.responseText + "\n"
+					+ "error: "+error);
+		}
 	})
 }
 
