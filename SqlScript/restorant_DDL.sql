@@ -229,7 +229,7 @@ begin
     p_table_name := 'MENU_'||p_user_id;
 
     -- CREATE TABLE명령어 생성
-    v_createtablesql := 'CREATE TABLE ' || p_table_name || ' (RESTORANT_CODE VARCHAR2(20), MENU_NUM NUMBER,MENU_NAME VARCHAR2(10),MENU_IMAGE VARCHAR2(10), MENU_COMMENT VARCHAR2(50))';
+    v_createtablesql := 'CREATE TABLE ' || p_table_name || ' (MENU_NUM NUMBER,MENU_NAME VARCHAR2(10),MENU_IMAGE VARCHAR2(10), MENU_COMMENT VARCHAR2(50))';
 
     --CREATE TABLE명령어 화면에 출력  
     DBMS_OUTPUT.PUT_LINE(v_createtablesql);

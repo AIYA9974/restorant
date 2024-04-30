@@ -3,8 +3,10 @@ package kh.mini.restorant.model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
+import kh.mini.restorant.model.dto.MenuInsertDto;
 
 public class MenuDao {
 	
@@ -57,6 +59,28 @@ public class MenuDao {
 		System.out.println("=========DELETE MENU DAO종료");
 		return result;
 	}
+	
+	public int insert(Connection conn,List<MenuInsertDto> list) {
+		System.out.println("=========INSERT MENU DAO진입");
+		int result = 0;
+		String sql = "INSERT INTO ? (MENU_NUM,MENU_NAME,MENU_COMMENT) VALUES (?,?,?)";
+		PreparedStatement pstmt = null;
+		
+		
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setSTring
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		System.out.println("=========INSERT MENU DAO종료");
+		return result;
+	}
+	
 }
 
 
