@@ -95,13 +95,13 @@ public class MemberDao {
 		System.out.println("dao 진행");
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE MEMBER SET PASSWORD = ? , PHONE = ? , EMAIL = ?  WHERE MEMBER_CODE = ?";
+		String sql = "UPDATE MEMBER SET PASSWORD = ? , EMAIL = ? , PHONE = ?  WHERE MEMBER_CODE = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getMemPassword());
-			pstmt.setLong(2, dto.getMemPhone());
-			pstmt.setString(3, dto.getMemEmail());
+			pstmt.setString(2, dto.getMemEmail());
+			pstmt.setLong(3, dto.getMemPhone() );
 			pstmt.setString(4, dto.getMemCode());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

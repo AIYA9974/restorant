@@ -13,7 +13,10 @@
 	href="<%=request.getContextPath()%>/resource/css/style.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resource/css/restorant.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resource/css/head.css">
 <style type="text/css">
+
 </style>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
@@ -28,7 +31,7 @@
 		</header>
 		
 <!-- section 시작점 -->
-		<section >
+		<section class="sc-kind-btn">
 			<form>
 				<input type="button" name="kr" class="kr"  value="KR">
 				<input type="button" name="jp" class="jp"  value="JP">
@@ -186,7 +189,7 @@
 					<div class="reslist_grid">
 					
 					<div>한식 1 그림</div>
-						<div>한식 1 설명 
+						<div class="flex">
 								<div>\${reslistdto.resName}</div>
 								<div>\${reslistdto.resPhone}</div>
 								<div>\${reslistdto.resLoc}</div>

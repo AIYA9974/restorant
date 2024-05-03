@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resource/css/bootstrap.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resource/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resource/css/style.css">
+<jsp:include page="/WEB-INF/views/function/function.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>	
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <body>
 	<div class="wrap">

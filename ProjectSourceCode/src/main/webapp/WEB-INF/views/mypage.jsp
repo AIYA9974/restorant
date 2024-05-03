@@ -29,23 +29,23 @@
 				<%@include file="/WEB-INF/views/header.jsp"%>
 			</div>
 		</header>
-		<section>
-			<div>
-				아이디 : <input type="text" class="id" readonly="readonly"
-					value="${memId }">
+		<section class="sc-member-info">
+			<div >
+				<div>아이디 : </div>
+				<div><input type="text" class="id" readonly="readonly" value="${memId }"></div>
 			</div>
 	
-			<div>
-				휴대폰 번호 : <input type="text" class="phone" readonly="readonly"
-					value="${memPhone }">
+			<div > 
+				<div>휴대폰 번호 :</div> 
+				<div><input type="text" class="phone" readonly="readonly" value="${memPhone }"></div>
 			</div>
 	
-			<div>
-				이메일 : <input type="text" class="email" readonly="readonly"
-					value="${memEmail }">
+			<div >
+				<div>이메일 : </div>
+				<div><input type="text" class="email" readonly="readonly" value="${memEmail }"></div>
 			</div>
 			
-			<div>
+			<div class="mypage-update">
 				<a href="${pageContext.request.contextPath}/mypageupdate">수정하기</a>
 			</div>
 		</section>
@@ -62,10 +62,11 @@
 						<input type="button" class="owner-delete-btn" value="오너계정 삭제">
 					</form>
 					
-					<div>
+					<div class="restorant-upload-a">
 						<a href="${pageContext.request.contextPath}/restorantupload">레스토랑 등록</a>
 					</div>
 					
+					<div class="cut">--------------------  등록된 레스토랑  --------------------</div>
 					<div class="restorant-list">
 						
 					</div>
@@ -74,12 +75,12 @@
 		
 					
 		</section>
-		<footer>
-			<div id="fh5co-footer">
-				<%@include file="/WEB-INF/views/footer.jsp"%>
-			</div>
-		</footer>
 	</div>
+	<footer>
+		<div id="fh5co-footer">
+			<%@include file="/WEB-INF/views/footer.jsp"%>
+		</div>
+	</footer>
 </body>
 
 <script>
@@ -208,25 +209,27 @@ function restorantListWrap(datalist){
 	for(var idx in datalist){
 		var reslistdto = datalist[idx];
 		htmlVal += `
-			<form class="reslist">
-				
-				<input type="hidden" name="resName" value="\${reslistdto.resName}">
-				<input type="hidden" name="resLoc" value="\${reslistdto.resLoc}">
-				<input type="hidden" name="resKind" value="\${reslistdto.resKind}">
-				<div class="reslist_grid">
-					<div>\${reslistdto.resName}</div>
-					<div>\${reslistdto.resLoc}</div>
-					<div>\${reslistdto.resKind}</div>
-				</div>
-			</form>
-			<form class="res_update" action="${pageContext.request.contextPath}/restorantupdate" method="post">
-				<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
-				<input type="submit" class="restorant-update-btn" value="수정하기">
-			</form>
-			<form class="res_delete" action="${pageContext.request.contextPath}/restorantdeletefuncion" method="post">
-				<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
-				<input type="submit" class="restorant-delete-btn" value="등록 삭제하기">
-			</form>
+			<div class="reslist-wrap">
+				<form class="reslist">
+					
+						<input type="hidden" name="resName" value="\${reslistdto.resName}">
+						<input type="hidden" name="resLoc" value="\${reslistdto.resLoc}">
+						<input type="hidden" name="resKind" value="\${reslistdto.resKind}">
+						<div class="reslist_grid">
+							<div>이름 : \${reslistdto.resName}</div>
+							<div>위치 : \${reslistdto.resLoc}</div>
+							<div>분야 : \${reslistdto.resKind}</div>
+						</div>
+				</form>
+				<form class="res_update   reslist-btn-form" action="${pageContext.request.contextPath}/restorantupdate" method="post">
+					<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
+					<input type="submit" class="restorant-update-btn  reslist-btn" value="수정하기">
+				</form>
+				<form class="res_delete   reslist-btn-form" action="${pageContext.request.contextPath}/restorantdeletefuncion" method="post">
+						<input type="hidden" name="resCode" class="resCode" value="\${reslistdto.resCode}">
+						<input type="submit" class="restorant-delete-btn  reslist-btn" value="등록 삭제하기">
+				</form>
+			</div>
 		`;
 		$(".restorant-list").html(htmlVal)
 		

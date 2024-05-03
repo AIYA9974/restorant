@@ -150,4 +150,15 @@ background-color: white;
  margin-left: 70px;
  
  }
+ .flex{
+ display: flex;
+ }
+ .flex > div{
+ margin-left: 15px;
+ }
  
+ .sc-kind-btn > form > input[type=button]{
+ 	width : 200px;
+ 	margin: 15px;
+ 	border-radius: 15px;
+ }
