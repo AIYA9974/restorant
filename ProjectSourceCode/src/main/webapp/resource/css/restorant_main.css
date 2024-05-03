@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+.wrap{
+	width: 970px;
+	margin: auto;
+	border : 1px solid black;
+}
+
+.null_menu{
+	width : 968px;
+	border : 1px solid black;
+	text-align: center;
+	height: 150px;
+	font-size: 40px;
+	font-weight: 900;
+    font-style: italic;
+    padding: 3% 0;
+}
+
+
+.flex{
+	display: flex;
+	
+}
+.loc-map{
+	border : 1px solid black;
+	width: 567px;
+  	height: 300px;
+  	float: left;
+}
+.restorant_info{
+	border : 1px solid black;
+	width: 400px;
+    height: 300px;
+    float: right;
+}
+.common-info{
+	display : flow-root;
+	width : 968px;
+	height: 200px;
+	border : 1px solid black;
+	
+}
+.common-info > div{
+	float: left;
+	margin: 20px;
+	width : 150px;
+	height: 150px;
+	border : solid black 1px;
+	border-radius: 30px;
+	
+}
+
+.place-alone{
+	background-image: 	url(../../image/placealone.png);
+}
+.place-group{
+	background-image: 	url(../../image/placegroup.png);
+}
+.sit-floor{
+	background-image: 	url(../../image/sitfloor.png);
+
+}
+.sit-chair{
+	background-image: 	url(../../image/sitfloor.png);
+
+}
+.sit-floor{
+	background-image: 	url(../../image/sitfloor.png);
+}
+
+

@@ -13,6 +13,8 @@ import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dto.RestorantDto;
 import kh.mini.restorant.model.dto.RestorantGetCodeDto;
 import kh.mini.restorant.model.dto.RestorantGetInfoDto;
+import kh.mini.restorant.model.dto.RestorantMainPageDto;
+import kh.mini.restorant.model.dto.RestorantPageListDto;
 import kh.mini.restorant.model.dto.RestorantUpdateDto;
 import kh.mini.restorant.model.dto.RestorantUploadedListDto;
 
@@ -191,6 +193,71 @@ public class RestorantDao {
 		JdbcTemplate.close(rs);
 		JdbcTemplate.close(pstmt);
 		System.out.println("------getResCode dao 종료");
+		return result;
+	}
+	
+	public List<RestorantPageListDto> selectAllRestorantList(Connection conn , String resKind){
+		System.out.println("-------------SELECT ALL RESTORANT LIST DAO 시작");
+		List<RestorantPageListDto> result = null;
+		String sql = "SELECT RESTORANT_CODE, RESTORANT_NAME , RESTORANT_PHONE , RESTORANT_LOCAL FROM RESTORANT WHERE RESTORANT_KIND = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, resKind);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = new ArrayList<RestorantPageListDto>();
+				do {
+					RestorantPageListDto dto = new RestorantPageListDto(
+							rs.getString("RESTORANT_CODE")
+							, rs.getString("RESTORANT_NAME")
+							, rs.getString("RESTORANT_PHONE")
+							, rs.getString("RESTORANT_LOCAL")
+							);
+					result.add(dto);
+				}while (rs.next());
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JdbcTemplate.close(rs);
+		JdbcTemplate.close(pstmt);
+		
+		System.out.println("DAO resKind :"+resKind);
+		System.out.println("DAO result :"+result);
+		
+		System.out.println("-------------SELECT ALL RESTORANT LIST DAO 종료");
+		return result;
+	}
+	
+	public RestorantMainPageDto mainPageGetInfo (Connection conn, String resCode) {
+		System.out.println("------------- RESTORANT MAIN PAGE DAO 시작");
+		RestorantMainPageDto result = null;
+		String sql = "SELECT RESTORANT_NAME , RESTORANT_PHONE , RESTORANT_SUB_PHONE , RESTORANT_EMAIL , RESTORANT_LOCAL , RESTORANT_MESSAGE \n"
+				+ "    FROM RESTORANT WHERE RESTORANT_CODE = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, resCode);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = new RestorantMainPageDto(rs.getString("RESTORANT_NAME"), rs.getLong("RESTORANT_PHONE"), rs.getLong("RESTORANT_SUB_PHONE"), rs.getString("RESTORANT_EMAIL"), rs.getString("RESTORANT_LOCAL"), rs.getString("RESTORANT_MESSAGE") );
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		JdbcTemplate.close(rs);
+		JdbcTemplate.close(pstmt);
+		
+		System.out.println("------------- RESTORANT MAIN PAGE DAO 종료");
 		return result;
 	}
 	

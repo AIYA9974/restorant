@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kh.mini.restorant.model.service.MenuService;
-import kh.mini.restorant.model.service.RestorantInfoService;
+import kh.mini.restorant.model.service.RestorantCommonInfoService;
 import kh.mini.restorant.model.service.RestorantService;
 
 /**
@@ -34,7 +34,7 @@ public class RestorantDeleteFunction extends HttpServlet {
 		
 //		레스토랑 인포 딜리트 섹션
 		int result = 0;
-		result = new RestorantInfoService().delete(resCode);
+		result = new RestorantCommonInfoService().delete(resCode);
 		System.out.println("레스토랑 인포 딜리트 : "+result);
 		
 		if(result == 1) {

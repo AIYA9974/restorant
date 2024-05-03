@@ -13,12 +13,23 @@
 	href="<%=request.getContextPath()%>/resource/css/style.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resource/css/introduce.css">
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 </head>
 <body>
 	<div class="wrap">
 
-		<div class="logo"><a href="home">LOGO</a></div>
+		<c:if test="${empty sssMemberCode }">
+			<div class="login">
+				<a href="${getContext.request.contextPath}/mini/login">LOGIN</a>
+			</div>
+		</c:if>
+		<c:if test="${not empty sssMemberCode }">
+					<div class="login">
+						<a href="${getContext.request.contextPath}/mini/mypage">마이페이지</a>
+						<a href="${getContext.request.contextPath}/mini/logoutfunction">로그아웃</a>
+					</div>
+		</c:if>
 
 		<div class="home_login">
 			<div>

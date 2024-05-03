@@ -15,6 +15,8 @@
 		</header>
 	</div>
 	<section>
+	
+		
 		<form>
 		
 		<!-- 레스토랑 등록 페이지 -->
@@ -39,15 +41,17 @@
 			<div>
 				<select name="restorant-kind" id="input-score">
 		              <option selected value="0">직접입력</option>
-		              <option value="ko">한식</option>
-		              <option value="cn">중식</option>
-		              <option value="jp">일식</option>
-		              <option value="en">양식</option>
+		              <option value="KO">한식</option>
+		              <option value="CN">중식</option>
+		              <option value="JP">일식</option>
+		              <option value="US">양식</option>
 		        </select>
 	        </div>
 	        <!-- /레스토랑 등록 페이지 -->
 	        
 	        <!-- 레스토랑 info 등록 페이지 -->
+	        
+	        
 	        <div>
 	        	혼밥석 유무 :
 	        	Y : <input type="radio" name="place-alone" value="Y">
@@ -150,18 +154,22 @@
    
     function insertRestorantInfoHandler(sssResCode){
     	console.log(sssResCode);
-    	console.log($("[name=place-alone]").val());
+    	console.log($('[name=place-alone]:checked').val());
+    	console.log($('[name=place-group]:checked').val());
+    	console.log($('[name=sit-floor]:checked').val());
+    	console.log($('[name=sit-chair]:checked').val());
+    	console.log($('[name=standing]:checked').val());
     	
     	$.ajax({
-    		url : "${pageContext.request.contextPath}/restorantinfoinsertfunction"
+    		url : "${pageContext.request.contextPath}/restorantcommoninfoinsertfunction"
     		,method : "post"
     		,data : {
     			resCode : sssResCode
-    			,placeAlone : $("[name=place-alone]").val()
-    			,placeGroup : $("[name=place-group]").val()
-    			,sitFloor :  $("[name=sit-floor]").val()
-    			,sitChair : $("[name=sit-chair]").val()
-    			,standing : $("[name=standing]").val()
+    			,placeAlone : $('[name=place-alone]:checked').val()
+    			,placeGroup : $('[name="place-group"]:checked').val()
+    			,sitFloor :  $('[name="sit-floor"]:checked').val()
+    			,sitChair : $('[name="sit-chair"]:checked').val()
+    			,standing : $('[name="standing"]:checked').val()
     		}
     		,success : function(result){
     			console.log(result);

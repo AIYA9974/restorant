@@ -1,4 +1,4 @@
-package kh.mini.restorant.function;
+package kh.mini.restorant.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class MypageUpdateController
  */
 @WebServlet("/mypageupdate")
-public class MypageUpdateFunction extends HttpServlet {
+public class MypageUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MypageUpdateFunction() {
+    public MypageUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }

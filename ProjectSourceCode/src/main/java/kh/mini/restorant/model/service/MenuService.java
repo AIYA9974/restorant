@@ -6,6 +6,7 @@ import java.util.List;
 import kh.mini.restorant.jdbc.common.JdbcTemplate;
 import kh.mini.restorant.model.dao.MenuDao;
 import kh.mini.restorant.model.dto.MenuInsertDto;
+import kh.mini.restorant.model.dto.MenuSelectAllDto;
 	
 
 public class MenuService {
@@ -31,6 +32,14 @@ public class MenuService {
 		int result = 0;
 		Connection conn = JdbcTemplate.getConnection(true);
 		result = dao.insert(conn, list);
+		JdbcTemplate.close(conn);
+		return result;
+	}
+	
+	public List<MenuSelectAllDto> selectAll(String resCode) {
+		List<MenuSelectAllDto> result = null;
+		Connection conn = JdbcTemplate.getConnection(true);
+		result = dao.selectAll(conn, resCode);
 		JdbcTemplate.close(conn);
 		return result;
 	}

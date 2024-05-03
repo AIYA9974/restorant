@@ -45,6 +45,9 @@
 					value="${memEmail }">
 			</div>
 			
+			<div>
+				<a href="${pageContext.request.contextPath}/mypageupdate">수정하기</a>
+			</div>
 		</section>
 		<section class="owner-session">
 			<div>

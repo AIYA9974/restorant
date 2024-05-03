@@ -31,6 +31,7 @@ public class MenuUploadFunction extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		// 방법 - gson 최신 버전용 완전 잘됨
 		MenuInsertDto[] reqVoArray = gson.fromJson(request.getReader(), MenuInsertDto[].class);

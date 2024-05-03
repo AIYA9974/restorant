@@ -72,6 +72,7 @@
 						<div><input type="text" name="menu-name" placeholder="메뉴 이름"> </div>
 						<div><input type="textarea" name="menu-info" placeholder="메뉴 설명"> </div>
 						<div><input type="file" name="menu-picture" placeholder="메뉴 사진"> </div>
+						<div><input type="hidden" name="resCode" value="${sssResCode}" readonly="readonly"></div>
 					</div>
 				`;
 			
@@ -83,7 +84,7 @@
 			var menuList = [];
 			for(var i=0; i< $("[name=menu-num]").length; i++){
 				var menuObj = new Object();
-				menuObj.menuNum = $("[name=menu-num]").eq(i).val();
+				menuObj.resCode = $("[name=resCode]").eq(i).val();
 				menuObj.menuName = $("[name=menu-name]").eq(i).val();
 				menuObj.menuInfo = $("[name=menu-info]").eq(i).val();
 				menuList.push(menuObj);
@@ -97,40 +98,18 @@
 				success: function(result){
 					if(result >0 ){
 						alert("sdkskdkfjlsdjflsdf");
-						location.href="${pageContext.request.contextPath}/mypage";
+				/* 		location.href="${pageContext.request.contextPath}/mypage"; */
 					}else {
 						alert("sdkskdkfjlsdjflsdf");
 					}
 				}
 		       });
-
+			
+	
 			
 			console.log(menuList);
 		}
 		
-		function menuUploadHandler(){
-			
-		/* 	console.log("버튼누름 작동함")
-			$.ajax({
-				url : "${pageContext.request.contextPath}/menuuploadfunction"
-				,method : "post"
-				,data : {
-					menuNum : $("[name=menu-num]").val()
-					,menuName : $("[name=menu-name]").val()
-					,menuInfo : $("[name=menu-info]").val()
-					
-					
-				}
-				,success : function(result){
-					console.log(result);
-				}
-				,error : function(request, status, error){
-					alert("code: "+request.status + "\n" + "message: " 
-							+ request.responseText + "\n"
-							+ "error: "+error);
-				}
-			}) */
-		}
 		
 	</script>
 </body>

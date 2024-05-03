@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kh.mini.restorant.model.dto.RestorantInfoDto;
-import kh.mini.restorant.model.service.RestorantInfoService;
+import kh.mini.restorant.model.dto.RestorantCommonInfoDto;
+import kh.mini.restorant.model.service.RestorantCommonInfoService;
 
 /**
  * Servlet implementation class RestorantInfoInsertFunction
  */
-@WebServlet("/restorantinfoinsertfunction")
+@WebServlet("/restorantcommoninfoinsertfunction")
 public class RestorantInfoInsertFunction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,7 +43,7 @@ public class RestorantInfoInsertFunction extends HttpServlet {
 		System.out.println("standing : "+standing);
 		
 		
-		int result = new RestorantInfoService().insert(new RestorantInfoDto(resCode, placeAlone, placeGroup, sitFloor, sitChair, standing));
+		int result = new RestorantCommonInfoService().insert(new RestorantCommonInfoDto(resCode, placeAlone, placeGroup, sitFloor, sitChair, standing));
 		System.out.println(result);
 		if(result == 1) {
 			System.out.println("SERVLET RES INFO : 성공하였습니다");

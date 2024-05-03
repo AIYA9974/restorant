@@ -1,40 +1,52 @@
 package kh.mini.restorant.model.dto;
 
 public class MenuInsertDto {
-	private String menuNum;
+	private String resCode;
 	private String menuName;
 	private String menuInfo;
 	
 	public MenuInsertDto() {
 		super();
 	}
-	public MenuInsertDto(String menuNum, String menuName, String menuInfo) {
+
+	public MenuInsertDto(String resCode, String menuName, String menuInfo) {
 		super();
-		this.menuNum = menuNum;
+		this.resCode = resCode;
 		this.menuName = menuName;
 		this.menuInfo = menuInfo;
 	}
+
 	@Override
 	public String toString() {
-		return "MenuInsertDto [menuNum=" + menuNum + ", menuName=" + menuName + ", menuInfo=" + menuInfo + "]";
+		return "MenuInsertDto [resCode=" + resCode + ", menuName=" + menuName + ", menuInfo=" + menuInfo + "]";
 	}
-	public String getMenuNum() {
-		return menuNum;
+
+	public String getResCode() {
+		return resCode;
 	}
-	public void setMenuNum(String menuNum) {
-		this.menuNum = menuNum;
+
+	public void setResCode(String resCode) {
+		this.resCode = resCode;
 	}
+
 	public String getMenuName() {
 		return menuName;
 	}
+
 	public void setMenuName(String menuName) {
 		this.menuName = menuName;
 	}
+
 	public String getMenuInfo() {
 		return menuInfo;
 	}
+
 	public void setMenuInfo(String menuInfo) {
 		this.menuInfo = menuInfo;
 	}
+
+
+	
+	
 	
 }
