@@ -1,9 +1,13 @@
 @charset "UTF-8";
+body{
+	background-image:url(../image/wood_1.png);
+}
 
 .wrap{
 	width: 970px;
 	margin: auto;
 	border : 1px solid black;
+	background-color: ivory;
 }
 
 .null_menu{
@@ -17,11 +21,25 @@
     padding: 3% 0;
 }
 
+.loc-map{
+	background-image: url(../image/map.png);
+}
+.res_info_wrap > div{
+	margin-left: 15px;
+}
 
 .flex{
 	display: flex;
-	
 }
+.msg{
+	border : 1px solid black;
+	width:  350px;
+	height: 75px;
+	border-radius: 15px;
+	margin: auto;
+}
+
+
 .loc-map{
 	border : 1px solid black;
 	width: 567px;
@@ -50,23 +68,36 @@
 	border-radius: 30px;
 	
 }
+.common-info > div >div{
+	border : solid black 1px;
+	background-color: white;
+	border-radius: 30px;
+	width: 65px;
+	margin: 6px;
+	
+}
 
 .place-alone{
-	background-image: 	url(../../image/placealone.png);
+	background-image: 	url(../image/place_alone.png);
+	background-size: cover;
 }
 .place-group{
-	background-image: 	url(../../image/placegroup.png);
+	background-image: 	url(../image/place_group.png);
+	background-size: cover;
 }
 .sit-floor{
-	background-image: 	url(../../image/sitfloor.png);
+	background-image: 	url(../image/sit_floor.png);
+	background-size: cover;
 
 }
 .sit-chair{
-	background-image: 	url(../../image/sitfloor.png);
+	background-image: 	url(../image/sit_chair.png);
+	background-size: cover;
 
 }
-.sit-floor{
-	background-image: 	url(../../image/sitfloor.png);
+.standing{
+	background-image: 	url(../image/standing.png);
+	background-size: cover;
 }
 
 

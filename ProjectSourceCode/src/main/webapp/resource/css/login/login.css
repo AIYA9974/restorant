@@ -24,10 +24,11 @@ body::before {
     margin-bottom: 60px;
 }
 .int-area {
-    width:  400px; position: relative;
+    width:  400px; 
+    position: relative;
     margin-top: 20px;
 }
-/* .int-area:first-child{ margin-top: 0;}
+.int-area:first-child{ margin-top: 0;}
 .int-area input {
     width: 100%;
     padding: 20px 10px 10px;
@@ -35,9 +36,9 @@ body::before {
     border: none;
     border-bottom: 1px solid #999;
     font-size: 18px; color: #fff;
-    outline(윤곽선) 지우기
+  /*   outline (윤곽선) 지우기 */
     outline: none;
-} */
+}
 .int-area label {
     position: absolute; left: 10px; top:15px;
     font-size: 18px; color: #999;

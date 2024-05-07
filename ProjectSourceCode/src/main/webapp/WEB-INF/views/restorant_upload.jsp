@@ -49,7 +49,7 @@
 			<div>
 				<select name="restorant-kind" id="input-score">
 		              <option selected value="0">직접입력</option>
-		              <option value="KO">한식</option>
+		              <option value="KR">한식</option>
 		              <option value="CN">중식</option>
 		              <option value="JP">일식</option>
 		              <option value="US">양식</option>

@@ -17,7 +17,7 @@ body{
 										/* section */
 section{
 width: 970px;
-height: 700px;	
+
 }
 
 
@@ -35,94 +35,32 @@ button  {
 	text-align: center;	
 }
 
-/* section 시작점  */
 
-input[type=radio]{
-	display: none; 
-}
-
-
-
-section>input[id=kr]:checked
-~div:nth-of-type(1) {
-	float: left;
-	border: 1px solid black;
-}
-section>input[id=kr]:checked
-~div:nth-of-type(2) {
-	display: none;
-}
-section>input[id=kr]:checked
-~div:nth-of-type(3) {
-	display: none;
-}
-section>input[id=kr]:checked
-~div:nth-of-type(4) {
-	display: none;
+div.display_wrap{
+  	display: flex;
+  	width : 900px;
+	height: 110px;
+	border : 1px solid black;
+	margin: 34px;
+	border-radius: 25px;
+	background: white;
 }
 
-section>input[id=jp]:checked
-~div:nth-of-type(1) {
-	display: none;
-}
-section>input[id=jp]:checked
-~div:nth-of-type(2) {
-	float: left;
-	border: 1px solid black;
-}
-section>input[id=jp]:checked
-~div:nth-of-type(3) {
-	display: none;
-}
-section>input[id=jp]:checked
-~div:nth-of-type(4) {
-	display: none;
-}
-
-section>input[id=cn]:checked
-~div:nth-of-type(1) {
-	display: none;
-}
-section>input[id=cn]:checked
-~div:nth-of-type(2) {
-	display: none;
-}
-section>input[id=cn]:checked
-~div:nth-of-type(3) {
-	float: left;
-	border: 1px solid black;
-}
-section>input[id=cn]:checked
-~div:nth-of-type(4) {
-	display: none;
-}
-
-section>input[id=us]:checked
-~div:nth-of-type(1) {
-	display: none;
-}
-section>input[id=us]:checked
-~div:nth-of-type(2) {
-	display: none;
-}
-section>input[id=us]:checked
-~div:nth-of-type(3) {
-	display: none;
-}
-section>input[id=us]:checked
-~div:nth-of-type(4) {
-	float: left;
-	border: 1px solid black;
-}
-
-/* section 끝점  */
-
-.flex{
-	
-  display: flex;
+.res-flex{
+	padding-left:10px;
+	border : 1px solid black;
+  	width : 729px;
   
 }
+.res-picture{
+	border : 1px solid black;
+	width: 80px;
+	border-radius: 25px 0 0 25px;
+}
 
+.visit-restorant{
+	border-radius: 0 25px 25px 0;
+}
 
 div.flex> div > div {
  border: 1px solid black;
@@ -162,3 +100,7 @@ background-color: white;
  	margin: 15px;
  	border-radius: 15px;
  }
+
+
+ 
+ 

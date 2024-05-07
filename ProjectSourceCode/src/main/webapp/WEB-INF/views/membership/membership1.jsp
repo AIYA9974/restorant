@@ -59,7 +59,7 @@
 
     <script>
     
-      /*   let id = $('#id');
+         let id = $('#id');
         let pw = $('#pw');
         let pwch = $('#pwch');
         let email = $('#email');
@@ -157,7 +157,7 @@
 	    				$('#msg-memberpasswordCheck').css('color', 'red');
 	    			}
 	    		
-	    	});	 */
+	    	});	 
     	
 		$(loadedHandler)
 		

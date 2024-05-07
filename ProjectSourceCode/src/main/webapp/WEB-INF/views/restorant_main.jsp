@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resource/css/restorant_main.css">
 <link rel="stylesheet"
@@ -17,13 +19,19 @@
 <jsp:include page="/WEB-INF/views/function/function.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+
+
+
 <title>Insert title here</title>
 </head>
 <body>
 	
 	<div class="wrap">
 		<header>
-			<%@include file="/WEB-INF/views/header.jsp"%>
+			<div>
+				<%@include file="/WEB-INF/views/header.jsp"%>
+			</div>
 		</header>
 		
 		<section class="sc-menu">
@@ -41,7 +49,7 @@
 		</section>
 		
 		<section  class="sc-restorant-info">
-			<div class="loc-map">지도 들어갈 위치</div>
+			<div class="loc-map">지도 들어갈 위치 - 들어갈 예정</div>
 			<div class="restorant_info">
 			</div>
 		</section>
@@ -49,23 +57,23 @@
 		<section class="sc-restorant-common-info">
 			<div class="common-info">
 					<c:if test="${sssPlaceAlone eq 'Y'}">
-						<div class="place-alone">혼밥석</div>
+						<div class="place-alone"><div>혼밥석</div></div>
 					</c:if>
 				
 					<c:if test="${sssPlaceGroup eq 'Y'}">
-						<div class="place-group">그룹석</div>
+						<div class="place-group"><div>그룹석</div></div>
 					</c:if>
 				
 					<c:if test="${sssSitFloor eq 'Y'}">
-						<div class="sit-floor">좌식</div>
+						<div class="sit-floor"><div>좌식</div></div>
 					</c:if>
 				
 					<c:if test="${sssSitChair eq 'Y'}">
-						<div class="sit-chair">의자식</div>
+						<div class="sit-chair"><div>의자식</div></div>
 					</c:if>
 					
 					<c:if test="${sssStanding eq 'Y'}">
-						<div class="standing">스텐딩</div>
+						<div class="standing"><div>스텐딩</div></div>
 					</c:if>
 			</div>
 		
@@ -73,7 +81,9 @@
 		</section>
 		
 		<footer>
-			<%@include file="/WEB-INF/views/footer.jsp"%>
+			<div id="fh5co-footer">
+				<%@include file="/WEB-INF/views/footer.jsp"%>
+			</div>
 		</footer>
 	</div>
 	
@@ -174,14 +184,14 @@
 				<input type="hidden" name="resLoc" value="\${data.resLoc }">
 				<input type="hidden" name="resMsg" value="\${data.resMsg }">
 			</form>
-			
-			<div class="flex"><div>식당 이름 : </div><div>\${data.resName }</div></div>
-			<div class="flex"><div>식당 전화번호 : </div><div>\${data.resPhone }</div></div>
-			<div class="flex"><div>식당 보조 전화번호 : </div><div>\${data.resSubPhone }</div></div>
-			<div class="flex"><div>식당 이메일 : </div><div>\${data.resEmail }</div></div>
-			<div class="flex"><div>식당 주소 : </div><div>\${data.resLoc }</div></div>
-			<div class="flex">\${data.resMsg }</div>	
-			
+			<div class="res_info_wrap">
+				<div class="flex"><div>식당 이름 : </div><div>\${data.resName }</div></div>
+				<div class="flex"><div>식당 전화번호 : </div><div>\${data.resPhone }</div></div>
+				<div class="flex"><div>식당 보조 전화번호 : </div><div>\${data.resSubPhone }</div></div>
+				<div class="flex"><div>식당 이메일 : </div><div>\${data.resEmail }</div></div>
+				<div class="flex"><div>식당 주소 : </div><div>\${data.resLoc }</div></div>
+				<div class="flex msg">\${data.resMsg }</div>	
+			</div>
 		`;
 		
 		$(".restorant_info").html(htmlVal);

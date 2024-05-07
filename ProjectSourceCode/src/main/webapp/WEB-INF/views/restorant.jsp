@@ -38,10 +38,7 @@
 				<input type="button" name="cn" class="cn" value="CN">
 				<input type="button" name="us" class="us" value="US">
 			</form>
-	<!-- 	<label for="kr">한식</label>
-			<label for="jp">일식</label>
-			<label for="cn">중식</label>
-			<label for="us">양식</label> -->
+
 			
 			<div class=flex>
 				<div class="restorant-list">
@@ -180,23 +177,24 @@
 		for(var idx in datalist){
 			var reslistdto = datalist[idx];
 			htmlVal += `
+				
 				<form class="reslist" action="${pageContext.request.contextPath}/restorantmaincontroller" method="post">
-			
+				
 					<input type="hidden" name="resCode" value="\${reslistdto.resCode}">
 					<input type="hidden" name="resName" value="\${reslistdto.resName}">
 					<input type="hidden" name="resPhone" value="\${reslistdto.resPhone}">
 					<input type="hidden" name="resLoc" value="\${reslistdto.resLoc}">
-					<div class="reslist_grid">
+					<div class="display_wrap">
 					
-					<div>한식 1 그림</div>
-						<div class="flex">
-								<div>\${reslistdto.resName}</div>
-								<div>\${reslistdto.resPhone}</div>
-								<div>\${reslistdto.resLoc}</div>
+						<div class="res-picture">한식 1 그림</div>
+						<div class="res-flex">
+								<div>이름 : \${reslistdto.resName}</div>
+								<div>번호 : \${reslistdto.resPhone}</div>
+								<div>위치 : \${reslistdto.resLoc}</div>
 						</div>
+						<input type="submit" name="visit-restorant" class="visit-restorant" value="방문하기">
 					</div>
-					
-					<input type="submit" name="visit-restorant" value="방문하기">
+						
 				</form>
 				
 			`;
