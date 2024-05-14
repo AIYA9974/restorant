@@ -66,7 +66,7 @@ public class RestorantDeleteFunction extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher("/WEB-INF/views/mypage.jsp").forward(request, response);
-		
+		response.sendRedirect("/mini/mypage");
 		
 		System.out.println("=========RESTORANT DELETE FUNCTION 탈출");
 	}
