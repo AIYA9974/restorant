@@ -35,7 +35,7 @@
 </details>
 
 <details>
-  <summary>ERD</summary>
+  <summary><h2>ERD</h2>h2></summary>
   <img src="https://github.com/user-attachments/assets/907c5d6e-b76b-4a05-8fdb-89a6d5865578">
   <div>상세 :  https://www.erdcloud.com/d/w62yzgcXH2CLQ3GmP</div>
 </details>
