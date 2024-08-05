@@ -18,11 +18,11 @@
   </details>
   <details>
     <summary><h3>사용언어</h3></summary>
-    <div>Front-end : JSTL, JQuery, Bootstrap, Date Picker
-          DB : JDBC, MyBatis
-          * Clova Face Recognition API, 
-          Kakao Mobility Developers길찾기 API
-          * JSON/XML : Jackson, Gson, xParDocument
+    <div>Front-end : JSTL, JQuery, Bootstrap, Date Picker<br>
+          DB : JDBC, MyBatis<br>
+          * Clova Face Recognition API, <br>
+          Kakao Mobility Developers길찾기 API<br>
+          * JSON/XML : Jackson, Gson, xParDocument<br>
 </div>
   </details>
   <details>
