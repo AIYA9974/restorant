@@ -12,31 +12,32 @@
 </details>
 <details>
   <summary><h2>개발 환경</h2></summary>
-  <details>
-    <summary><h3>운영체제</h3></summary>
-    <div>Window 10</div>
-  </details>
-  <details>
-    <summary><h3>사용언어</h3></summary>
-    <div>Front-end : JSTL, JQuery, Bootstrap, Date Picker<br>
-          DB : JDBC, MyBatis<br>
-          * Clova Face Recognition API, <br>
-          Kakao Mobility Developers길찾기 API<br>
-          * JSON/XML : Jackson, Gson, xParDocument<br>
-</div>
-  </details>
-  <details>
-    <summary><h3>FrameWork / Library</h3></summary>
-    <div>Window 10</div>
-  </details>
-  <details>
-    <summary><h3>운영체제</h3></summary>
-    <div>Window 10</div>
-  </details>
-  <details>
-    <summary><h3>운영체제</h3></summary>
-    <div>Window 10</div>
-  </details>
+  <ol>
+    <details>
+      <summary><h3>운영체제</h3></summary>
+      <div>Window 10</div>
+    </details>
+    <details>
+      <summary><h3>사용언어</h3></summary>
+      <div>Front-end : JSTL, JQuery, Bootstrap, Date Picker<br>
+            DB : JDBC, MyBatis<br>
+            JSON/XML : Jackson, Gson, xParDocument<br>
+      </div>
+    </details>
+    <details>
+      <summary><h3>FrameWork / Library</h3></summary>
+      <div>Window 10</div>
+    </details>
+    <details>
+      <summary><h3>운영체제</h3></summary>
+      <div>Window 10</div>
+    </details>
+    <details>
+      <summary><h3>운영체제</h3></summary>
+      <div>Window 10</div>
+    </details>
+  </ol>
+ 
 </details>
 
 
