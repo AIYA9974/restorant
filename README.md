@@ -16,24 +16,6 @@
 <details>
   <summary><h2>개발 환경</h2></summary>
   <img src="https://github.com/user-attachments/assets/fa1b04e2-8e7b-4ba3-98b9-cf2eb05bda4d">
-
-  <ul>
-    <li>운영체제 : Window 10</li>
-    <li>사용언어 : 
-      <ul>Front-end : JSTL, JQuery, Bootstrap<br>
-            DB : JDBC, MyBatis<br>
-            JSON/XML : Jackson, Gson, xParDocument
-      </ul>
-    </li>
-    <li>DB : OracleDB</li>
-    <li>WAS : Tomcat 9</li>
-    <li>Collaboration : 
-      <ul>
-        소스관리 : GitHub, Github Desktop<br>
-        이슈관리 : Google Drive/Docs
-      </ul>
-    </li>
-  </ul>
 </details>
 
 <details>
