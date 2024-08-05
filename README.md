@@ -33,10 +33,15 @@
     </li>
   </ul>
 </details>
+
 <details>
-  <summary></summary>
+  <summary>ERD</summary>
+  <img src="https://github.com/user-attachments/assets/907c5d6e-b76b-4a05-8fdb-89a6d5865578">
+  <div>상세 :  https://www.erdcloud.com/d/w62yzgcXH2CLQ3GmP</div>
+</details>
+<details>
+  <summary><h2>플로우 차트</h2></summary>
   <img src="https://github.com/user-attachments/assets/42782055-8c79-4f54-9a0d-7d503e8786d0">
   <div>상세 : https://www.figma.com/board/e1EYMNgmazvdS2oIRStXWb/Untitled?node-id=0-1&t=0JLkHgV3GB4me59j-1</div>
 </details>
-
 
