@@ -19,45 +19,15 @@
             JSON/XML : Jackson, Gson, xParDocument</li>
     <li>DB : OracleDB</li>
     <li>WAS : Tomcat 9</li>
-    <li>Collaboration : 소스관리 : GitHub, Github Desktop<br>
+    <li>Collaboration : 
+      <ul>
+        소스관리 : GitHub, Github Desktop<br>
         이슈관리 : Google Drive/Docs</li>
+      </ul>
     <li></li>
     
   </ul>
-    <details>
-      <summary><h3>운영체제</h3></summary>
-      <div>Window 10</div>
-    </details>
-    <details>
-      <summary><h3>사용언어</h3></summary>
-      <div>Front-end : JSTL, JQuery, Bootstrap, Date Picker<br>
-            DB : JDBC, MyBatis<br>
-            JSON/XML : Jackson, Gson, xParDocument<br>
-      </div>
-    </details>
-    <details>
-      <summary><h3>DB</h3></summary>
-      <div>OracleDB</div>
-    </details>
-    <details>
-      <summary><h3>Tool</h3></summary>
-      <div>IDE : Eclipse EE, VSCode<br>
-            DB IDE : Sql Developer<br>
-            Debug : Chrome Developer Tool<br>
-            UML : ERD-cloud, draw.io<br>
-      </div>
-    </details>
-    <details>
-      <summary><h3>WAS</h3></summary>
-      <div>Tomcat 9</div>
-    </details>
-    <details>
-      <summary><h3>Collaboration</h3></summary>
-      <div>
-       소스관리 : GitHub, Github Desktop<br>
-        이슈관리 : Google Drive/Docs
-      </div>
-    </details>
+
  
  
 </details>
