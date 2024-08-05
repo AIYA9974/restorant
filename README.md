@@ -48,12 +48,15 @@
   <summary><h2>개발 이슈</h2></summary>
   <ol ="I">
     <li>
+      <div>회원가입/로그인</div>
       <img src="https://github.com/user-attachments/assets/59984f64-9370-4aef-bc69-cd597efbb21b">
     </li>
     <li>
+      <div>프로시저 기능</div>
       <img src="https://github.com/user-attachments/assets/4d445bf4-3813-459f-9eec-878b909398fd">
     </li>
     <li>
+      <div>JSTL 기능</div>
       <img src="https://github.com/user-attachments/assets/4d445bf4-3813-459f-9eec-878b909398fd">
     </li>
 </details>
