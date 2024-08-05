@@ -56,8 +56,8 @@
       <img src="https://github.com/user-attachments/assets/4d445bf4-3813-459f-9eec-878b909398fd">
     </li><br>
     <li>
-      <div><h3>JSTL 기능</h3>h3></div>
+      <div><h3>JSTL 기능</h3></div>
       <img src="https://github.com/user-attachments/assets/4d445bf4-3813-459f-9eec-878b909398fd">
-    </li><br>
+    </li>
 </details>
 
