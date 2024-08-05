@@ -15,7 +15,7 @@
   <ul>
     <li>운영체제 : Window 10</li>
     <li>사용언어 : 
-      <ul>Front-end : JSTL, JQuery, Bootstrap, Date Picker<br>
+      <ul>Front-end : JSTL, JQuery, Bootstrap<br>
             DB : JDBC, MyBatis<br>
             JSON/XML : Jackson, Gson, xParDocument
       </ul>
