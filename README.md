@@ -12,7 +12,18 @@
 </details>
 <details>
   <summary><h2>개발 환경</h2></summary>
-  <ol>
+  <ul>
+    <li>운영체제 : Window 10</li>
+    <li>사용언어 : Front-end : JSTL, JQuery, Bootstrap, Date Picker<br>
+            DB : JDBC, MyBatis<br>
+            JSON/XML : Jackson, Gson, xParDocument</li>
+    <li>DB : OracleDB</li>
+    <li>WAS : Tomcat 9</li>
+    <li>Collaboration : 소스관리 : GitHub, Github Desktop<br>
+        이슈관리 : Google Drive/Docs</li>
+    <li></li>
+    
+  </ul>
     <details>
       <summary><h3>운영체제</h3></summary>
       <div>Window 10</div>
@@ -47,7 +58,7 @@
         이슈관리 : Google Drive/Docs
       </div>
     </details>
-  </ol>
+ 
  
 </details>
 
