@@ -15,6 +15,8 @@
 </details>
 <details>
   <summary><h2>개발 환경</h2></summary>
+  <img src="https://github.com/user-attachments/assets/fa1b04e2-8e7b-4ba3-98b9-cf2eb05bda4d">
+
   <ul>
     <li>운영체제 : Window 10</li>
     <li>사용언어 : 
