@@ -2,7 +2,7 @@
 <h3>KH정보교육원 세미프로젝트</h3>
 <img src="https://github.com/user-attachments/assets/3d304d24-0dde-42c5-ab06-98b16e106b14">
 <div>상세 : https://docs.google.com/presentation/d/1ExTXeaFpg1gL9q7gR2jhl3Xgarh3MVrcZsivqhP6uVQ/edit#slide=id.g2d1e711f559_0_27</div>
-
+a
 <details>
   <summary><h2>프로젝트 소개</h2></summary>
   <div>
