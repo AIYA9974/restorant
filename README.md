@@ -45,6 +45,5 @@
     </li>
 </details>
 
-asd
 
 
